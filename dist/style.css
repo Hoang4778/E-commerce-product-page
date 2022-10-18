@@ -1,0 +1,472 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: white;
+  position: relative;
+  z-index: 3;
+}
+
+nav {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid hsl(220deg, 14%, 75%);
+  gap: 5%;
+}
+nav .hamburger {
+  display: none;
+}
+nav .desktop-links {
+  margin-right: auto;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+nav .desktop-links li {
+  padding: 2rem 0;
+  border-bottom: 5px solid white;
+}
+nav .desktop-links li:hover {
+  border-bottom: 5px solid hsl(26deg, 100%, 55%);
+}
+nav .desktop-links li a {
+  text-decoration: none;
+  color: hsl(219deg, 9%, 45%);
+  font-weight: 500;
+}
+nav .desktop-links li a:hover {
+  color: black;
+}
+nav #cart {
+  position: relative;
+  cursor: pointer;
+}
+nav #cart #cart-num {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.5rem;
+  background-color: hsl(26deg, 100%, 55%);
+  color: white;
+  width: 1.4rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: none;
+}
+nav #cart .cart-icon:hover {
+  fill: black;
+}
+nav #cart-box {
+  position: absolute;
+  z-index: 4;
+  right: 8%;
+  top: 4.7rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  max-width: 22rem;
+  width: 100%;
+  height: 15rem;
+  box-shadow: 0 0 20px hsl(220deg, 14%, 75%);
+  display: none;
+}
+nav #cart-box #cart-title {
+  border-bottom: 1px solid hsl(220deg, 14%, 75%);
+  padding: 1.5rem;
+  font-weight: 700;
+}
+nav #cart-box .empty {
+  text-align: center;
+  margin: 4rem 0;
+  font-weight: 700;
+  color: hsl(219deg, 9%, 45%);
+}
+nav #cart-box #cart-items {
+  padding: 1.5rem;
+  display: none;
+}
+nav #cart-box #cart-items .item {
+  display: grid;
+  grid-template-areas: "img title trash" "img price trash";
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+nav #cart-box #cart-items .item .thumbnail {
+  grid-area: img;
+  width: 3rem;
+}
+nav #cart-box #cart-items .item .name {
+  grid-area: title;
+  color: hsl(219deg, 9%, 45%);
+}
+nav #cart-box #cart-items .item .trash {
+  grid-area: trash;
+  justify-self: right;
+  cursor: pointer;
+}
+nav #cart-box #cart-items .item .price {
+  grid-area: price;
+  color: hsl(219deg, 9%, 45%);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+nav #cart-box #cart-items .item .price .total {
+  color: black;
+  font-weight: 700;
+}
+nav #cart-box #cart-items .checkout {
+  width: 100%;
+  background-color: hsl(26deg, 100%, 55%);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+nav #avatar-box {
+  width: 3rem;
+  height: 3rem;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+nav #avatar-box:hover {
+  border: 2px solid hsl(26deg, 100%, 55%);
+  cursor: pointer;
+}
+nav #avatar-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.container .mobile-links {
+  position: absolute;
+  top: 0;
+  left: -12rem;
+  padding: 1.5rem;
+  width: 12rem;
+  height: 100%;
+  background-color: white;
+  list-style: none;
+  transition: all 0.5s ease;
+}
+.container .mobile-links .close-icon {
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.container .mobile-links li {
+  margin-bottom: 1rem;
+}
+.container .mobile-links li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+section {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  padding: 8rem 5rem 0;
+  align-items: center;
+}
+section .showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  position: relative;
+}
+section .showcase .main-pic {
+  width: 68%;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+section .showcase .thumbnails {
+  width: 68%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section .showcase .thumbnails > div {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+}
+section .showcase .thumbnails > div img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.8rem;
+}
+section .showcase .thumbnails > div img:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+section .showcase .forward-icon,
+section .showcase .backward-icon {
+  width: 3rem;
+  height: 3rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  display: none;
+}
+section .showcase .forward-icon {
+  right: 1rem;
+  top: 40%;
+}
+section .showcase .backward-icon {
+  left: 1rem;
+  top: 40%;
+}
+section .info .company-title {
+  color: hsl(26deg, 100%, 55%);
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+section .info .product-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+section .info .desc {
+  color: hsl(219deg, 9%, 45%);
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+section .info .price1 {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+section .info .price1 .new-price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+section .info .price1 .discount {
+  color: hsl(26deg, 100%, 55%);
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: hsl(25deg, 100%, 94%);
+}
+section .info .price2 {
+  font-weight: 700;
+  text-decoration: line-through;
+  color: hsl(220deg, 14%, 75%);
+  margin-bottom: 2rem;
+}
+section .info .btn {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: center;
+}
+section .info .btn .btn-qty {
+  padding: 8%;
+  background-color: hsl(223deg, 64%, 98%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+}
+section .info .btn .num {
+  font-weight: 700;
+}
+section .info .btn .operator {
+  width: 1rem;
+}
+section .info .btn .operator:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+section .info .btn .add-to-cart {
+  padding: 4%;
+  background-color: hsl(26deg, 100%, 55%);
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 4%;
+  justify-content: center;
+  box-shadow: 0 20px 10px hsl(25deg, 100%, 94%);
+}
+section .info .btn .add-to-cart .cart-icon {
+  fill: white;
+}
+section .info .btn .add-to-cart > span {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+section .info .btn .add-to-cart:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+section .img-modal {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+section .img-modal .showcase {
+  width: 30rem;
+}
+section .img-modal .showcase > svg {
+  align-self: end;
+  justify-self: right;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+section .img-modal .showcase .main-pic-container {
+  position: relative;
+  width: 100%;
+}
+section .img-modal .showcase .main-pic-container .main-pic {
+  width: 100%;
+  cursor: default;
+}
+section .img-modal .showcase .main-pic-container .backward-icon,
+section .img-modal .showcase .main-pic-container .forward-icon {
+  display: block;
+  top: 45%;
+  cursor: pointer;
+  z-index: 2;
+}
+section .img-modal .showcase .main-pic-container .backward-icon > svg > path:hover,
+section .img-modal .showcase .main-pic-container .forward-icon > svg > path:hover {
+  stroke: hsl(26deg, 100%, 55%);
+}
+section .img-modal .showcase .main-pic-container .backward-icon {
+  left: -1.5rem;
+}
+section .img-modal .showcase .main-pic-container .forward-icon {
+  right: -1.5rem;
+}
+section .img-modal .showcase .thumbnails {
+  width: 100%;
+}
+section .img-modal .showcase .thumbnails div:hover {
+  background-color: white;
+  cursor: pointer;
+}
+section .img-modal .showcase .close-icon {
+  fill: white;
+}
+section .img-modal .showcase .close-icon:hover {
+  fill: hsl(26deg, 100%, 55%);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  nav {
+    padding: 5%;
+  }
+  nav .desktop-links {
+    display: none;
+  }
+  nav .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  nav .page-logo {
+    margin-right: auto;
+  }
+  nav #avatar-box {
+    width: 2rem;
+    height: 2rem;
+  }
+  nav #cart-box {
+    right: 0;
+    margin: 0 auto;
+  }
+  nav #cart-box #cart-items .item {
+    gap: 5%;
+  }
+  section {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 1.5rem;
+  }
+  section .showcase .main-pic {
+    width: 100%;
+    border-radius: 0;
+    cursor: default;
+  }
+  section .showcase .thumbnails {
+    display: none;
+  }
+  section .showcase .forward-icon,
+section .showcase .backward-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  section .showcase .forward-icon > svg > path:hover,
+section .showcase .backward-icon > svg > path:hover {
+    stroke: hsl(26deg, 100%, 55%);
+  }
+  section .info {
+    padding: 0 1.5rem 2rem;
+  }
+  section .info .product-name {
+    font-size: 2rem;
+  }
+  section .info .price-tag {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  section .info .price-tag .price1 {
+    margin-bottom: 0;
+  }
+  section .info .price-tag .price2 {
+    margin-bottom: 0;
+  }
+  section .info .btn {
+    grid-template-columns: 1fr;
+  }
+}
