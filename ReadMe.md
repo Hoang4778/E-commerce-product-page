@@ -6,7 +6,7 @@ This project is a good practice of manipulating the DOM, handling **click** even
 
 ## How to run it on local machine
 
-In this project, I simply used vanilla JavaScript so you can open the page in the `dist` folder in VS Code with Live Server or directly in your OS directory
+In this project, I simply used vanilla JavaScript so you can open the page in the `dist` folder in VS Code with Live Server or directly in your OS directory.
 
 ## What this page is here for
 
@@ -14,4 +14,4 @@ It seems to be the easy stuff to work out, but with this design, it gives me ide
 
 ## Live version
 
-The template is available via [this link](https://e-commerce-product-page-cbd1d.firebaseapp.com/)
+The template is available via [this link](https://e-commerce-product-page-cbd1d.firebaseapp.com/).
